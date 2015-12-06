@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
+
+<h1>Seznam všech kuchařů (od A do Z)</h1>
+{% if list_of_chefs %}
+    <ul>
+    {% for chef in list_of_chefs %}
+        <li><h4><a href="{% url 'chefs_detail' chef.id %}">{{ chef.name }}, {{ chef.experience }}</a></h4></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Žádní kuchaři nejsou v databázi.</p>
+{% endif %}
+
+<h3><a href="/recipes">Zpět na hlavní stránku</a></h3>

@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
+
+    <h1>{{ chef.name }}</h1>
+    <h3> Věk: </h3>
+    <p> {{ chef.age }}</p>
+    <br />
+
+    <h3>Zkušenosti: </h3>
+    <p> {{ chef.experience }} </p>
+    <br />
+
+    <h2>Recepty kuchaře</h2>
+
+    <ul>
+    {% for recipe in chef.recipe_set.all %}
+        <li><h4><a href="{% url 'recipes_detail' recipe.id %}"> {{ recipe.r_title }} </a></h4></li>
+    {% endfor %}
+    </ul>
+<br />
+<h3><a href="{% url 'add_recipe' chef.id %}">Přidat recept</a></h3>
+<br />
+<hr>
+<h3><a href="/recipes/chefs">Zpět na výpis všech kuchařů</a> | <a href="/recipes/">Zpět na hlavní stránku</a></h3>

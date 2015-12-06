@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
+
+<h1>Nový kuchař</h1>
+{% block content %}
+<form method="POST" class="form">
+    {% csrf_token %}
+    <input type="text" id="name" name="name" placeholder="Jméno kuchaře"  /><br />
+    <input type="text" id="age" name="age" placeholder="Věk kuchaře" /><br />
+    <input type="text" id="experience" name="experience" placeholder="Zkušenosti kuchaře" /><br />
+    <input type="submit" value="Přidate kuchaře">
+</form>
+{% endblock %}
+
+<h4><a href="{% url 'index' %}">Zpět na hlavní stránku</a></h4>

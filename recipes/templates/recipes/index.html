@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
+
+<h1> Recepty na míru pro každého </h1>
+
+<h3>Posledních 5 přidaných receptů</h3>
+{% if latest_recipe_list %} 
+    <ul>   
+    {% for recipe in latest_recipe_list %}
+        <li><h4><a href="{% url 'recipes_detail' recipe.id %}">{{ recipe.r_title }}</a></h4></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Žádné recepty nejsou k dispozici.</p>
+{% endif %}
+<hr>
+<h3>Pokračujte na</h3>
+
+<h3><a href="/recipes/recipes/">Výpis Receptů</a></h3>
+<h3><a href="/recipes/chefs/">Výpis Kuchařů</a></h3>
+<br />
+<h3>Nebo se přidejte jako kuchař</h3>
+<h3><a href="{% url 'add_chef' %}">Nový kuchař</a></h3>
+
+<br />
+<h6><a href="{% url 'form_error' %}">Nahlásit chybu na stránkách</a></h6>

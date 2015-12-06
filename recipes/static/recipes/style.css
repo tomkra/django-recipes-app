@@ -1,0 +1,41 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1024px;
+    border: 1px solid;
+    padding: 30px;
+    color: rgb(16,16,16);
+}
+
+a {
+    color: rgb(0, 51, 204);
+}
+
+a:hover {
+    color: rgb(0, 102, 255);
+}
+
+h1, h2, h3 {
+    font-family: Arial;
+    color: rgb(0, 102, 0);
+}
+
+.comment {
+    border: 1px solid;
+    padding: 0 5 5 5px;
+    margin-bottom: 5px;
+}
+
+.seda {
+    color: grey;
+}
+
+form input {
+    margin: 0 0 10 0px;
+    padding: 2 2 2 2px;
+}
+
+form textarea {
+    margin: 0 0 10 0px;
+}
+

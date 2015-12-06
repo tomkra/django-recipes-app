@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
+
+    <h1>{{ recipe.r_title }}</h1>
+    <h2> Ingredience: </h2>
+    <p> {{ recipe.ingredients }}</p>
+    <br />
+
+    <h2>Postup: </h2>
+    <p> {{ recipe.process }} </p>
+    <br />
+    <span class="seda">Publikováno:  {{recipe.date_published}}</span>
+    <h3>Vytvořil:</h3> 
+    <h4><a href="{% url 'chefs_detail' recipe.chef.id %}">{{ recipe.chef.name }}</a></h4>
+    <hr />
+
+    <h3>Komentáře k receptu</h3>
+
+    {% if recipe.comment_set.all %}
+        {% for comment in recipe.comment_set.all %}
+            <div class='comment'>
+                <h4> {{ comment.c_title }} </h4>
+                <p>{{ comment.text }}</p>
+                <span class="seda"> Napsal: {{ comment.nick }}, Datum: {{ comment.date_commented }} </span>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>K tomuto receptu nejsou žádné komentáře.</p>
+    {% endif %}
+<h3><a href="{% url 'add_comment' recipe.id %}">Přidat komentář</a></h3>
+<br />
+<h3><a href="/recipes/recipes/">Zpět na výpis všech receptů</a> | <a href="/recipes/">Zpět na hlavní stránku</a></h3>

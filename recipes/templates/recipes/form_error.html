@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
+
+<h1>Nahlášení chyby nebo problému na stránkách</h1>
+<form action="MAILTO:kralutomas@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Vaše jmnéno" required /><br />
+    <input type="email" name="email" placeholder="Váš email" required /><br />
+    <textarea rows="10" cols="50" name="text" placeholder="Popis problému..." required></textarea><br />
+
+    <input type="submit" value="Odeslat">
+    <input type="reset" value="Reset">
+</form>
+
+<h4><a href="{% url 'index' %}">Zpět na hlavní stránku</a></h4>

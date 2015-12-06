@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
+
+<h1>Seznam všech receptů</h1>
+{% if list_of_recipes %}
+    <ul>
+    {% for recipe in list_of_recipes %}
+        <li><h4><a href="{% url 'recipes_detail' recipe.id %}">{{ recipe.r_title }}</a></h4></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Žádné recepty nejsou k dispozici.</p>
+{% endif %}
+
+<h3><a href="/recipes">Zpět na hlavní stránku</a></h3>

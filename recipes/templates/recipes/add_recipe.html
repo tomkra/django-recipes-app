@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'recipes/style.css' %}" />
+
+<h1>Nový recept</h1>
+{% block content %}
+<form method="POST" class="form">
+    {% csrf_token %}
+    <input type="text" id="r_title" name="r_title" placeholder="Titulek"  /><br />
+    <textarea id="ingredients" name="ingredients" rows="5" cols="50" placeholder="Ingredience..."></textarea><br />
+    <textarea id="process" name="process" rows="10" cols="50" placeholder="Postup receptu..."></textarea><br />
+    <input type="submit" value="Přidat recept">
+</form>
+{% endblock %}
+
+<h4><a href="{% url 'chefs_detail' chefid %}">Zpět na detail kuchaře</a></h4>
