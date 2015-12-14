@@ -6,15 +6,19 @@ import datetime
 
 # Create your models here.
 class Chef(models.Model):
-    """EXPERIENCES = (
-        ('B', 'Beginner'),
-        ('A', 'Advanced'),
-        ('E', 'Expert'),
-        ('M', 'Magical'),
-        )"""
+    Beginner  = 'Beginner'
+    Advanced = 'Advanced'
+    Expert = 'Expert'
+    Magical = 'Magical'
+    EXPERIENCES = (
+        (Beginner, 'Beginner'),
+        (Advanced, 'Advanced'),
+        (Expert, 'Expert'),
+        (Magical, 'Magical'), 
+        )
     name = models.CharField(max_length=50)
     age = models.IntegerField(validators=[MinValueValidator(10), MaxValueValidator(110)])
-    experience = models.CharField(max_length=50)
+    experience = models.CharField(max_length=50, choices=EXPERIENCES, default=Beginner)
     date_added = models.DateTimeField()
 
     def __str__(self):

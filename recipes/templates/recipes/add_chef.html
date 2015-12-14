@@ -6,8 +6,13 @@
 <form method="POST" class="form">
     {% csrf_token %}
     <input type="text" id="name" name="name" placeholder="Jméno kuchaře"  /><br />
-    <input type="text" id="age" name="age" placeholder="Věk kuchaře" /><br />
-    <input type="text" id="experience" name="experience" placeholder="Zkušenosti kuchaře" /><br />
+    <input type="number" min="10" max="110" id="age" name="age" placeholder="Věk" /><br />
+     Experience: <select name="experience">
+        <option value="Beginner">Beginner</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Expert">Expert</option>
+        <option value="Magical">Magical</option>
+    </select><br /> <br />
     <input type="submit" value="Přidate kuchaře">
 </form>
 {% endblock %}

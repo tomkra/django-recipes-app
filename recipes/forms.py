@@ -3,7 +3,7 @@ from django import forms
 from .models import Comment, Recipe, Chef
 
 class CommentForm(forms.ModelForm):
-
+    
     class Meta:
         model = Comment
         fields = ('nick', 'c_title', 'text')
